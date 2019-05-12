@@ -1,29 +1,28 @@
 <template>
     <div>
-        <ul>
-            <li v-for="item in news" :key="item.id">{{item.title}}</li>    
-        </ul>
+        <div>
+            <p v-for="item in $store.state.NewsStore.news" :key="item.id">
+                <a v-bind:href="item.url">{{item.title}}</a> 
+                 <small>{{item.time_ago}} by {{item.user}}</small>
+            </p>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import  axios  from "axios";
+import HackerNews from '@/api/HackerNews';
 
 @Component
 export default class NewsView extends Vue {
-    news: Array<any> = [];
+    // news: Array<any> = [];
 
     created() {
-        axios.get('https://api.hnpwa.com/v0/news/1.json').then(response =>{
-            this.news = response.data;
-
-            console.log(this.news)
-        })
-        .catch(error =>{
-            console.log(error);
-        })
+        this.$store.dispatch('fetchNewsList');
+        // HackerNews.fetchNewsList().then(response => {
+        //     this.news = response.data;
+        // });
     }
-    
 }
 </script>
