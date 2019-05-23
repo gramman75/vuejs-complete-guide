@@ -16,4 +16,14 @@ export default class HackerNews{
         const response = await axios.get(`${config.baseUrl}jobs/1.json`);
         return response.data;
     }
+
+    public static async fetchUser(id: string) {
+        const response = await axios.get(`${config.baseUrl}user/${id}.json`);
+        return response.data;
+    }
+
+    public static async fetchItem(id: string){
+        const response = await axios.get(`${config.baseUrl}item/${id}.json`);
+        return response.data;
+    }
 }

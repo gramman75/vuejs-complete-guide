@@ -3,6 +3,8 @@ import Vuex from 'vuex';
 import NewsStore from '@/store/modules/news';
 import JobsStore from '@/store/modules/jobs';
 import AskStore from '@/store/modules/ask';
+import UserStore from '@/store/modules/user';
+import ItemStore from '@/store/modules/item';
 
 Vue.use(Vuex);
 
@@ -11,5 +13,7 @@ export default new Vuex.Store({
     NewsStore,
     JobsStore,
     AskStore,
+    UserStore,
+    itemStore: ItemStore,
   }
 });

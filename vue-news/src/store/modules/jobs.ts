@@ -3,7 +3,7 @@ import HackerNews from "@/api/HackerNews";
 import { Module, Mutation, Action, VuexModule, MutationAction } from "vuex-module-decorators";
 
 // @Module({stateFactory: true, namespaced: true, name: 'jobs'})
-@Module
+@Module({ namespaced: true })
 export default class JobsStore extends VuexModule {
     jobs = [];
 

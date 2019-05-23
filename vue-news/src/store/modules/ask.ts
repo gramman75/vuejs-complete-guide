@@ -2,7 +2,7 @@
 import HackerNews from "@/api/HackerNews";
 import { Module, Mutation, Action, VuexModule, MutationAction } from "vuex-module-decorators";
 
-@Module
+@Module({namespaced: true})
 export default class AskStore extends VuexModule {
     public ask = [];
 

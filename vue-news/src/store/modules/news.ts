@@ -1,7 +1,7 @@
 import HackerNews from '@/api/HackerNews';
 import { Module, VuexModule, Mutation, Action, MutationAction } from "vuex-module-decorators";
 
-@Module
+@Module({ namespaced: true })
 export default class NewsStore extends VuexModule {
     news = [];
 
