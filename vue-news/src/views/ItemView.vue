@@ -1,14 +1,17 @@
 <template>
     <div>
         <section>
-            <!-- 질문상세정보 -->
+            <!-- 사용자 정보-->
+            <!-- <UserProfile :userInfo="user" /> -->
+            <UserProfile>
+                <router-link :to="`/user/${user.id}`" slot="userName">{{ user.id }}</router-link>
+                <!-- < slot="userName">Item {{ user.id }}</a> -->
+                <template slot="time">{{ user.created }}</template>
+            </UserProfile>
+            
+        </section>
+        <section>
             <div>
-                <div>
-                    사용자 프로필
-                </div>
-                <div>
-                    {{item.user}}
-                </div>   
                 <h2>{{item.title}}</h2>
             </div>
         </section>
@@ -22,12 +25,21 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import UserProfile from '@/components/UserProfile.vue';
 
-@Component
+@Component({
+    components : {
+        UserProfile,
+    }
+})
 export default class ItemView extends Vue{
 
     get item() {
         return this.$store.getters['itemStore/getItem'];
+    }
+
+    get user() {
+        return this.$store.state.UserStore.user;
     }
 
     created() {
@@ -38,4 +50,22 @@ export default class ItemView extends Vue{
 </script>
 
 
+<style scoped>
+.user-container {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
 
+.fa-user {
+    font-size: 2.5rem;
+}
+
+.user-description {
+    padding-left: 8px;
+} 
+
+.time {
+    font-size: 0.7rem;
+}
+</style>

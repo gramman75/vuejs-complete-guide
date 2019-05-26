@@ -1,16 +1,25 @@
 <template>
     <div>
-        <div>Name : {{user.id}}</div>
-        <div>created: {{user.created}}</div>
-        <div>Karma : {{user.karma}}</div>
+        <!-- <UserProfile :userInfo="user" /> -->
+        <UserProfile>
+            <div slot="userName">{{ user.id }}</div>
+            <template slot="time">{{ user.created }}</template>
+            <span slot="karma">{{ user.karma }}</span>
+        </UserProfile>
     </div>
     
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import UserProfile from '@/components/UserProfile.vue';
 
-@Component
+
+@Component({
+    components:{
+        UserProfile,
+    }
+})
 export default class UserView extends Vue{
 
     created() {

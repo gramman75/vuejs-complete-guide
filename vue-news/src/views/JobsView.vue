@@ -14,6 +14,9 @@ import ListItem from '@/components/ListItem.vue';
     }
 })
 export default class JobsViews extends Vue {
+    created() {
+        this.$store.dispatch('JobsStore/fetchJobsList');
+    }
 }
 </script>
 

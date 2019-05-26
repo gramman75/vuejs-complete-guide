@@ -14,6 +14,9 @@ import ListItem from '@/components/ListItem.vue'
     }
 })
 export default class AskViews extends Vue {
+    created() {
+        this.$store.dispatch('AskStore/fetchAskList')
+    }
 }
 </script>
 
