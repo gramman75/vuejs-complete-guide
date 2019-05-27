@@ -20,7 +20,8 @@ export default new Router({
     {
       path: '/news',
       name: 'news',
-      component: CreateListView('NewsView'),
+      // component: CreateListView('NewsView'),
+      component: NewsView,
     },
     {
       path: '/ask',

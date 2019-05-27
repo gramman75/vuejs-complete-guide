@@ -5,8 +5,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Mixins } from 'vue-property-decorator';
 import ListItem from '@/components/ListItem.vue';
+import ListMixin from '@/mixin/ListMixin.vue'
 import bus from '@/utils/bus.ts';
 
 @Component({
@@ -14,7 +15,7 @@ import bus from '@/utils/bus.ts';
         ListItem
     }
 })
-export default class NewsView extends Vue {
+export default class NewsView extends Mixins(ListMixin){
     // created() {
     //     bus.$emit('start:spinner');
     //     setTimeout( ()=>{

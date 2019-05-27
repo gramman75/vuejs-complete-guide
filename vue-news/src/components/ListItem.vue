@@ -40,7 +40,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class NewsView extends Vue {
+export default class ListItem extends Vue {
 
     // created() {
     //     if (this.$route.name === 'news'){
