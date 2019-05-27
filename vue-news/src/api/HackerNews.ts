@@ -17,6 +17,12 @@ export default class HackerNews{
         return response.data;
     }
 
+    public static async fetchList(name: string) {
+        const response = await axios.get(`${config.baseUrl}${name}/1.json`);
+        return response.data;
+
+    }
+
     public static async fetchUser(id: string) {
         const response = await axios.get(`${config.baseUrl}user/${id}.json`);
         return response.data;
@@ -26,4 +32,6 @@ export default class HackerNews{
         const response = await axios.get(`${config.baseUrl}item/${id}.json`);
         return response.data;
     }
+
+
 }

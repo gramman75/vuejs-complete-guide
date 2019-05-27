@@ -7,6 +7,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import ListItem from '@/components/ListItem.vue'
+import bus from '@/utils/bus.ts';
 
 @Component({
     components:{
@@ -15,7 +16,14 @@ import ListItem from '@/components/ListItem.vue'
 })
 export default class AskViews extends Vue {
     created() {
-        this.$store.dispatch('AskStore/fetchAskList')
+        bus.$emit('start:spinner');
+        setTimeout(()=>{
+            this.$store.dispatch('AskStore/fetchAskList')
+              .then(()=>{
+                  bus.$emit('end:spinner');
+              })
+            
+        }, 3000)
     }
 }
 </script>
