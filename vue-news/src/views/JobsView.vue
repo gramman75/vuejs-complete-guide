@@ -15,17 +15,17 @@ import bus from '@/utils/bus.ts';
     }
 })
 export default class JobsViews extends Vue {
-    created() {
-        bus.$emit('start:spinner');
-        setTimeout(() =>{
-            this.$store.dispatch('JobsStore/fetchJobsList')
-              .then(()=>{
-                  bus.$emit('end:spinner');
-              });
+    // created() {
+    //     bus.$emit('start:spinner');
+    //     setTimeout(() =>{
+    //         this.$store.dispatch('JobsStore/fetchJobsList')
+    //           .then(()=>{
+    //               bus.$emit('end:spinner');
+    //           });
 
-        }, 3000)
+    //     }, 3000)
 
-    }
+    // }
 }
 </script>
 

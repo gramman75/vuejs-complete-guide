@@ -15,15 +15,15 @@ import bus from '@/utils/bus.ts';
     }
 })
 export default class NewsView extends Vue {
-    created() {
-        bus.$emit('start:spinner');
-        setTimeout( ()=>{
-            this.$store.dispatch('NewsStore/fetchNewsList').then(()=>{
-                bus.$emit('end:spinner');
-            });
-        }, 3000)
+    // created() {
+    //     bus.$emit('start:spinner');
+    //     setTimeout( ()=>{
+    //         this.$store.dispatch('NewsStore/fetchNewsList').then(()=>{
+    //             bus.$emit('end:spinner');
+    //         });
+    //     }, 3000)
 
-    }
+    // }
   
 }
 </script>

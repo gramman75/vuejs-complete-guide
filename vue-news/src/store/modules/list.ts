@@ -22,7 +22,7 @@ export default class ListStore extends VuexModule {
     // }
     @MutationAction
     public async fetchList(name: string){
-        const data = await HackerNews.fetchList(name)
+        const data = await HackerNews.fetchList(name);
         return {
             list : data,
         }

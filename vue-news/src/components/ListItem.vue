@@ -53,13 +53,14 @@ export default class NewsView extends Vue {
     // }
 
     get listItems() {
-        if (this.$route.name === 'news'){
-            return this.$store.state.NewsStore.news;
-        } else if (this.$route.name === 'ask'){
-            return this.$store.state.AskStore.ask;
-        } else if (this.$route.name === 'jobs'){
-            return this.$store.state.JobsStore.jobs;
-        }
+        // if (this.$route.name === 'news'){
+        //     return this.$store.state.NewsStore.news;
+        // } else if (this.$route.name === 'ask'){
+        //     return this.$store.state.AskStore.ask;
+        // } else if (this.$route.name === 'jobs'){
+        //     return this.$store.state.JobsStore.jobs;
+        // }
+        return this.$store.state.ListStore.list;
 
 
     }

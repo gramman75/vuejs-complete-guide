@@ -5,7 +5,7 @@ import AskView from '../views/AskView.vue';
 import JobsView from '../views/JobsView.vue';
 import UserView from '@/views/UserView.vue';
 import ItemView from '@/views/ItemView.vue';
-import CreateListView from '@/views/CreateListView.ts';
+import CreateListView from '@/views/CreateListView.js';
 
 Vue.use(Router);
 
@@ -25,12 +25,12 @@ export default new Router({
     {
       path: '/ask',
       name: 'ask',
-      component: (new CreateListView()).execute('AskView'), // AskView,
+      component: CreateListView('AskView'), // AskView,
     },
     {
       path: '/jobs',
       name: 'jobs',
-      component: (new CreateListView()).execute('JobsView'), // JobsView,
+      component: CreateListView('JobsView'), // JobsView,
     },
     {
       path: '/user/:id',
